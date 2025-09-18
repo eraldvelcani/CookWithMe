@@ -1,7 +1,6 @@
 import type { Route } from "./+types/index";
 
-
-
 export default function Home() {
-  return <section>CookWithMe</section>;
+
+    return <section>CookWithMe</section>;
 }
