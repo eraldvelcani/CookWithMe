@@ -7,6 +7,7 @@ const Hero = () => {
             <p className="text-lg text-orange-700 max-w-2xl mx-auto mb-6">Recipes</p>
             <div className="flex justify-center gap-4">
                 <Link to="/recipes" className="bg-orange-600 text-white px-6 py-2 rounded hover:bg-orange-700 transition">View Recipes</Link>
+                <Link to="/contact" className="border border-orange-600 text-orange-600 px-6 py-2 rounded hover:bg-orange-600 hover:text-white transition">Contact Us</Link>
             </div>
         </header>
      );
