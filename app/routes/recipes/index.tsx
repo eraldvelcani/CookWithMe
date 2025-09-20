@@ -1,5 +1,6 @@
 import type { Route } from "./+types/index";
 import type { Recipe } from "~/types";
+import RecipeCard from "~/components/RecipeCard";
 
 export async function loader({ request }:Route.LoaderArgs):Promise<{recipes:Recipe[]}> { //TS: Route.LoaderArgs is the type/shape of request. Promise is the return type.
     const res = await fetch('http://localhost:8000/recipes');
@@ -14,7 +15,12 @@ const RecipesPage = ({ loaderData}:Route.ComponentProps) => { //the data returne
 
     return ( 
     <>
-        <h2 className="text-3xl font-bold">🍳Recipes:</h2>
+        <h2 className="text-3xl font-bold mb-5">🍳Recipes:</h2>
+        <div className="grid gap-6 sm:grid-cols-2">
+            {recipes.map((recipe) => (
+                <RecipeCard recipe={recipe} key={recipe.id}/>
+            ))}
+        </div>
     </> );
 }
  

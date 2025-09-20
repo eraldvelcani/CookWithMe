@@ -24,7 +24,7 @@
     "description": "Delicate French almond meringue cookies sandwiched with flavored fillings.",
     "image": "/images/macarons.png",
     "url": "https://example.com",
-    "difficulty": "Hard",
+    "difficulty": "Difficult",
     "featured": true
   },
   {
@@ -69,7 +69,7 @@
     "description": "A luxurious dish of beef tenderloin wrapped in mushrooms, prosciutto, and puff pastry.",
     "image": "/images/wellington.png",
     "url": "https://example.com",
-    "difficulty": "Hard",
+    "difficulty": "Difficult",
     "featured": false
   },
   {
