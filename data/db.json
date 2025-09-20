@@ -1,0 +1,94 @@
+{  
+"projects": [
+  {
+    "id": 1,
+    "title": "Pasta Carbonara",
+    "description": "A creamy Italian pasta made with eggs, cheese, pancetta, and black pepper.",
+    "image": "/images/carbonara.png",
+    "url": "https://example.com",
+    "difficulty": "Easy",
+    "featured": false
+  },
+  {
+    "id": 2,
+    "title": "Velvet Cake",
+    "description": "A soft, moist red-colored cake with a fine crumb, often layered and frosted with cream cheese icing.",
+    "image": "/images/velvet.png",
+    "url": "https://example.com",
+    "difficulty": "Medium",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Macarons",
+    "description": "Delicate French almond meringue cookies sandwiched with flavored fillings.",
+    "image": "/images/macarons.png",
+    "url": "https://example.com",
+    "difficulty": "Hard",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Cornbread Salad",
+    "description": "A filling salad with bacon, bell peppers, and corn.",
+    "image": "/images/cornSalad.png",
+    "url": "https://example.com",
+    "difficulty": "Easy",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Tomato Soup",
+    "description": "A smooth, savory soup made from ripe tomatoes, herbs, and broth.",
+    "image": "/images/tomatoSoup.png",
+    "url": "https://example.com",
+    "difficulty": "Easy",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "Tiramisu",
+    "description": "An Italian dessert of coffee-soaked ladyfingers layered with mascarpone cream and cocoa.",
+    "image": "/images/tiramisu.png",
+    "url": "https://example.com",
+    "difficulty": "Medium",
+    "featured": false
+  },
+  {
+    "id": 7,
+    "title": "Breakfast Casserole",
+    "description": "A baked dish of eggs, cheese, meats, and vegetables, perfect for feeding a crowd.",
+    "image": "/images/casserole.png",
+    "url": "https://example.com",
+    "difficulty": "Easy",
+    "featured": false
+  },
+  {
+    "id": 8,
+    "title": "Beef Wellington",
+    "description": "A luxurious dish of beef tenderloin wrapped in mushrooms, prosciutto, and puff pastry.",
+    "image": "/images/wellington.png",
+    "url": "https://example.com",
+    "difficulty": "Hard",
+    "featured": false
+  },
+  {
+    "id": 9,
+    "title": "Shepherd's Pie",
+    "description": "A hearty casserole of minced meat and vegetables topped with creamy mashed potatoes.",
+    "image": "/images/shepherd.png",
+    "url": "https://example.com",
+    "difficulty": "Medium",
+    "featured": false
+  },
+  {
+    "id": 10,
+    "title": "Crêpes",
+    "description": "Thin, delicate French 'pancakes' topped with sweet or savory ingredients.",
+    "image": "/images/crepes.png",
+    "url": "https://example.com",
+    "difficulty": "Easy",
+    "featured": false
+  }
+]
+}
