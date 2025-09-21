@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 
 export async function loader({ request }:Route.LoaderArgs):Promise<{recipes:Recipe[]}> { //TS: Route.LoaderArgs is the type/shape of request. Promise is the return type.
-    const res = await fetch('http://localhost:8000/recipes');
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/recipes`);
     const data = await res.json();
 
     return { recipes: data };

@@ -3,7 +3,7 @@ import type { Recipe } from "~/types";
 import { Link } from "react-router";
 
 export async function clientLoader({request, params}:Route.ClientLoaderArgs):Promise<Recipe> {
-    const res = await fetch(`http://localhost:8000/recipes/${params.id}`); //id comes from routes.ts -> recipes/:id
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/recipes/${params.id}`); //id comes from routes.ts -> recipes/:id
     if (!res.ok) throw new Response('Recipe not found...', {status: 404});
 
     const recipe:Recipe = await res.json();
