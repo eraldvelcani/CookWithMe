@@ -3,6 +3,7 @@ import type { Recipe } from "~/types";
 import { useState } from "react";
 import Pagination from "~/components/Pagination";
 import RecipeCard from "~/components/RecipeCard";
+import { AnimatePresence, motion } from "framer-motion"; 
 
 
 export async function loader({ request }:Route.LoaderArgs):Promise<{recipes:Recipe[]}> { //TS: Route.LoaderArgs is the type/shape of request. Promise is the return type.
@@ -14,7 +15,7 @@ export async function loader({ request }:Route.LoaderArgs):Promise<{recipes:Reci
 
 const RecipesPage = ({ loaderData}:Route.ComponentProps) => { //the data returned from the function above is passed into the arguments here.
     const [currentPage, setCurrentPage] = useState(1);
-    const [selectedDifficulty, setSelectedDifficulty] = useState('Difficult');
+    const [selectedDifficulty, setSelectedDifficulty] = useState('All');
 
     const recipesPerPage = 6;
     const { recipes } = loaderData as {recipes:Recipe[]};
@@ -37,11 +38,15 @@ const RecipesPage = ({ loaderData}:Route.ComponentProps) => { //the data returne
                 </button>
             ))}
         </div>
-        <div className="grid gap-6 sm:grid-cols-2">
-            {currentRecipes.map((recipe) => (
-                <RecipeCard recipe={recipe} key={recipe.id}/>
-            ))}
-        </div>
+        <AnimatePresence mode='wait'>
+            <motion.div layout className="grid gap-6 sm:grid-cols-2">
+                {currentRecipes.map((recipe) => (
+                    <motion.div key={recipe.id} layout>
+                        <RecipeCard recipe={recipe} />
+                    </motion.div>
+                ))}
+            </motion.div>
+        </AnimatePresence>
         <Pagination totalPages={totalPages} currentPage={currentPage} onPaginationSelection={setCurrentPage}/>
     </> );
 }
