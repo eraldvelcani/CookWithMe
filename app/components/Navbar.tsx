@@ -24,7 +24,6 @@ const Navbar = () => {
                 <div className="space-x-4 font-semibold text-base text-green-800">
                     <NavLink to="/" className={({ isActive }) => isActive ? active : base}>Home</NavLink>
                     <NavLink to="/recipes" className={({ isActive }) => isActive ? active : base}>Recipes</NavLink>
-                    <NavLink to="/subscription" className={({ isActive }) => isActive ? active : base}>Newsletter</NavLink>
                     <NavLink to="/about" className={({ isActive }) => isActive ? active : base}>About Us</NavLink>
                     <NavLink to="/contact" className={({ isActive }) => isActive ? active : base}>Contact</NavLink>
                 </div>
@@ -43,7 +42,6 @@ const Navbar = () => {
                 <div className="md:hidden bg-green-700 text-orange-300 font-semibold px-6 py-4 space-y-2 space-x-4 text-center">
                     <NavLink to="/" className={({ isActive }) => isActive ? active : base}>Home</NavLink>
                     <NavLink to="/recipes" className={({ isActive }) => isActive ? active : base}>Recipes</NavLink>
-                    <NavLink to="/subscription" className={({ isActive }) => isActive ? active : base}>Newsletter</NavLink>
                     <NavLink to="/about" className={({ isActive }) => isActive ? active : base}>About Us</NavLink>
                     <NavLink to="/contact" className={({ isActive }) => isActive ? active : base}>Contact</NavLink>
                 </div>

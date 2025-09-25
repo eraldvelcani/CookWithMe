@@ -7,7 +7,6 @@ export default [layout('./routes/layouts/home.tsx',
         route('contact', './routes/contact/index.tsx'),
         route('recipes', './routes/recipes/index.tsx'), 
         route('recipes/:id', './routes/recipes/individual.tsx'), 
-        route('subscription', './routes/subscription/index.tsx'),
         route('*', './routes/errors/not-found.tsx')
     ])
 ] satisfies RouteConfig;
