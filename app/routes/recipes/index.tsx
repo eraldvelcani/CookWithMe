@@ -24,7 +24,7 @@ const RecipesPage = ({ loaderData}:Route.ComponentProps) => { //the data returne
     const difficulties = ['All', ...new Set(recipes.map((recipe) => recipe.difficulty))];
     const filteredRecipes = selectedDifficulty === 'All' ? recipes : recipes.filter((recipe) => recipe.difficulty === selectedDifficulty);
 
-    const searchResult = recipes.filter((recipe) => {
+    const searchResult = filteredRecipes.filter((recipe) => {
         const query = searchQuery.toLowerCase();
         return (
             recipe.title.toLowerCase().includes(query) || recipe.description.toLowerCase().includes(query)
@@ -51,17 +51,16 @@ const RecipesPage = ({ loaderData}:Route.ComponentProps) => { //the data returne
             ))}
         </div>
 
-        <AnimatePresence mode='wait'>
             <div className="space-y-6">
                 {searchResult.length === 0 && (<p className="text-gray-400 text-center">No Recipes Found</p>)}
             </div>
+        <AnimatePresence mode='wait'>
             <motion.div layout className="grid gap-6 sm:grid-cols-2">
                 {currentRecipes.map((recipe) => (
                     <motion.div key={recipe.id} layout>
                         <RecipeCard recipe={recipe} />
                     </motion.div>
                 ))}
-                
             </motion.div>
         </AnimatePresence>
 
