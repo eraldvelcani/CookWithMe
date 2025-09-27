@@ -2,12 +2,24 @@ import type { Route } from "./+types/individual";
 import type { Recipe } from "~/types";
 import { Link } from "react-router";
 
-export async function clientLoader({request, params}:Route.ClientLoaderArgs):Promise<Recipe> {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/recipes/${params.id}`); //id comes from routes.ts -> recipes/:id
+export async function loader({request, params}:Route.LoaderArgs) {
+    const { id } = params;
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/recipes?filters[documentId][$eq]=${id}&populate=*`); //id comes from routes.ts -> recipes/:id; if documendId equals id from RecipeCard.tsx (which is now changed to documentId)
     if (!res.ok) throw new Response('Recipe not found...', {status: 404});
 
-    const recipe:Recipe = await res.json();
-    return recipe;
+    const json:StrapiResponse<StrapiProject> = await res.json();
+    const item = json.data[0];
+    const recipe:Recipe = {
+        id: item.id,
+        documentId: item.documentId,
+        title: item.title,
+        description: item.description,
+        image: item.image?.url ? `${import.meta.env.VITE_STRAPI_URL}${item.image.url}` : '/images/no-image.png',
+        url: item.url,
+        difficulty: item.difficulty,
+        featured: item.featured
+    };
+    return {recipe};
 }
 
 export function HydrateFallback () { //what will be shown on-screen during client hydration
@@ -15,7 +27,7 @@ export function HydrateFallback () { //what will be shown on-screen during clien
 }
 
 const IndividualRecipePage = ({loaderData}:Route.ComponentProps) => {
-    const recipe = loaderData;
+    const { recipe } = loaderData;
     return ( 
         <>
             <Link to="/recipes" className="flex items-center text-blue-400 hover:text-blue-500 mb-6 transition">Return to Recipes</Link>

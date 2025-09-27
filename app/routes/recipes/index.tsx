@@ -1,5 +1,5 @@
 import type { Route } from "./+types/index";
-import type { Recipe } from "~/types";
+import type { Recipe, StrapiResponse, StrapiRecipe } from "~/types";
 import { useState } from "react";
 import Pagination from "~/components/Pagination";
 import RecipeCard from "~/components/RecipeCard";
@@ -8,10 +8,21 @@ import { AnimatePresence, motion } from "framer-motion";
 
 
 export async function loader({ request }:Route.LoaderArgs):Promise<{recipes:Recipe[]}> { //TS: Route.LoaderArgs is the type/shape of request. Promise is the return type.
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/recipes`);
-    const data = await res.json();
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/recipes?populate=*`);
+    const json:StrapiResponse<StrapiRecipe> = await res.json();
 
-    return { recipes: data };
+    const recipes = json.data.map((item) => ({
+        id: item.id,
+        documentId: item.documentId,
+        title: item.title,
+        description: item.description,
+        image: item.image?.url ? `${import.meta.env.VITE_STRAPI_URL}${item.image.url}` : '/images/no-image.png',
+        url: item.url,
+        difficulty: item.difficulty,
+        featured: item.featured
+    }));
+
+    return { recipes };
 }
 
 const RecipesPage = ({ loaderData}:Route.ComponentProps) => { //the data returned from the function above is passed into the arguments here.
