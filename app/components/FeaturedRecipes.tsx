@@ -7,6 +7,8 @@ type FeaturedRecipesProps = {
 };
 
 const FeaturedRecipes = ({ recipes, count=4 }:FeaturedRecipesProps) => {
+    if (recipes.length === 0) return null;
+
     const featured = recipes.filter((r) => r.featured).slice(0, count);
 
     return ( 
