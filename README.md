@@ -37,10 +37,10 @@ This is **not a fully-fledged** recipe app — individual recipe pages currently
 
 ## Technologies & Dependencies
 
-React Router v7
-Fetching content from Strapi CMS
-Dynamic route-based pages
-Filtering and pagination for projects
-Blog post metadata loading
-Environment-based config with .env
-Deployed-API friendly
+React Router v7 </br>
+Fetching content from Strapi CMS </br>
+Dynamic route-based pages </br>
+Filtering and pagination for projects </br>
+Blog post metadata loading </br>
+Environment-based config with .env </br>
+Deployed-API friendly </br>
